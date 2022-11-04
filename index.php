@@ -94,7 +94,7 @@
                         <tbody>
                             
                             <?php 
-                                foreach($persona as $dato){ 
+                                foreach($reserva as $dato){ 
                             ?>
 
                             <tr>
