@@ -2,8 +2,8 @@
 
 <?php
     include_once "model/conexion.php";
-    $sentencia = $bd -> query("select * from persona");
-    $persona = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    $sentencia = $bd -> query("select * from reserva");
+    $reserva = $sentencia->fetchAll(PDO::FETCH_OBJ);
     //print_r($persona);
 ?>
 
@@ -87,7 +87,6 @@
                                 <th scope="col">dia in</th>
                                 <th scope="col">dia fin</th>
                                 <th scope="col">descripcion</th>
-                                <th scope="col">Celular</th>
                                 <th scope="col" colspan="2">Opciones</th>
                             </tr>
                         </thead>
@@ -99,11 +98,11 @@
 
                             <tr>
                                 <td scope="row"><?php echo $dato->id; ?></td>
-                                <td><?php echo $dato->nombres; ?></td>
-                                <td><?php echo $dato->apellido_paterno; ?></td>
-                                <td><?php echo $dato->apellido_materno; ?></td>
-                                <td><?php echo $dato->fecha_nacimiento; ?></td>
-                                <td><?php echo $dato->celular; ?></td>
+                                <td><?php echo $dato->id_usuario; ?></td>
+                                <td><?php echo $dato->id_habitacion; ?></td>
+                                <td><?php echo $dato->diain; ?></td>
+                                <td><?php echo $dato->diafin; ?></td>
+                                <td><?php echo $dato->descripcion; ?></td>
                                 <td><a class="text-success" href="editar.php?codigo=<?php echo $dato->id; ?>"><i class="bi bi-pencil-square"></i></a></td>
                                 <td><a class="text-primary" href="agregarPromocion.php?codigo=<?php echo $dato->id; ?>"><i class="bi bi-basket3"></i></a></td>
                                 <td><a onclick="return confirm('Estas seguro de eliminar?');" class="text-danger" href="eliminar.php?codigo=<?php echo $dato->id; ?>"><i class="bi bi-trash"></i></a></td>
@@ -122,28 +121,28 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    Ingresar datos:
+                    nueva reserva:
                 </div>
                 <form class="p-4" method="POST" action="registrar.php">
                     <div class="mb-3">
-                        <label class="form-label">Nombres: </label>
-                        <input type="text" class="form-control" name="txtNombres" autofocus required>
+                        <label class="form-label">id_usuario: </label>
+                        <input type="text" class="form-control" name="txtid_usuario" autofocus required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Apellido Paterno: </label>
-                        <input type="text" class="form-control" name="txtApPaterno" autofocus required>
+                        <label class="form-label">id_habitacion: </label>
+                        <input type="text" class="form-control" name="txtid_habitacion" autofocus required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Apellido Materno: </label>
-                        <input type="text"" class="form-control" name="txtApMaterno" autofocus required>
+                        <label class="form-label">diain: </label>
+                        <input type="text"" class="form-control" name="txtdiain" autofocus required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Fecha de Nacimiento: </label>
-                        <input type="date" class="form-control" name="txtFechaNacimiento" autofocus required>
+                        <label class="form-label">diafin: </label>
+                        <input type="text" class="form-control" name="txtdiafin" autofocus required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Celular: </label>
-                        <input type="number" class="form-control" name="txtCelular" autofocus required>
+                        <label class="form-label">descripcion: </label>
+                        <input type="number" class="form-control" name="txtdescripcion" autofocus required>
                     </div>
                     <div class="d-grid">
                         <input type="hidden" name="oculto" value="1">

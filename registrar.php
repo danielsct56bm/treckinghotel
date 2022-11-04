@@ -1,19 +1,19 @@
 <?php
 //print_r($_POST);
-if (empty($_POST["oculto"]) || empty($_POST["txtNombres"]) || empty($_POST["txtApPaterno"]) || empty($_POST["txtApMaterno"]) || empty($_POST["txtFechaNacimiento"]) || empty($_POST["txtCelular"])) {
+if (empty($_POST["oculto"]) || empty($_POST["txtid_usuario"]) || empty($_POST["txtid_habitacion"]) || empty($_POST["txtdiain"]) || empty($_POST["txtdiafin"]) || empty($_POST["txtdescripcion"])) {
     header('Location: index.php?mensaje=falta');
     exit();
 }
 
 include_once 'model/conexion.php';
-$nombres = $_POST["txtNombres"];
-$ap_paterno = $_POST["txtApPaterno"];
-$ap_materno = $_POST["txtApMaterno"];
-$fecha_nacimiento = $_POST["txtFechaNacimiento"];
-$celular = $_POST["txtCelular"];
+$id_usuario = $_POST["txtid_usuario"];
+$id_habitacion = $_POST["txtid_habitacion"];
+$diain = $_POST["txtdiain"];
+$diafin = $_POST["txtdiafin"];
+$descripcion = $_POST["txtdescripcion"];
 
-$sentencia = $bd->prepare("INSERT INTO persona(nombres,apellido_paterno,apellido_materno,fecha_nacimiento,celular) VALUES (?,?,?,?,?);");
-$resultado = $sentencia->execute([$nombres, $ap_paterno, $ap_materno, $fecha_nacimiento, $celular]);
+$sentencia = $bd->prepare("INSERT INTO reserva(id_usuario,id_habitacion,diain,diafin,descripcion) VALUES (?,?,?,?,?);");
+$resultado = $sentencia->execute([$id_usuario, $id_habitacion, $diain, $diafin, $descripcion]);
 
 if ($resultado === TRUE) {
     header('Location: index.php?mensaje=registrado');
