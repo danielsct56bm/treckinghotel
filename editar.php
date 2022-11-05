@@ -22,7 +22,7 @@
                 <div class="card-header">
                     Editar datos:
                 </div>
-                <form class="p-4" method="POST" action="editarreservaprocesp.php">
+                <form class="p-4" method="POST" action="editarreservaproceso.php">
                     <div class="mb-3">
                         <label class="form-label">diain: </label>
                         <input type="text" class="form-control" name="txtdiain" required 
