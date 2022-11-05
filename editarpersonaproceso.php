@@ -1,7 +1,7 @@
 <?php
     print_r($_POST);
     if(!isset($_POST['codigo'])){
-        header('Location: index.php?mensaje=error');
+        header('Location: verdetallepersona.php?mensaje=error');
     }
 
     include 'model/conexion.php';
@@ -16,8 +16,8 @@
     $resultado = $sentencia->execute([$nombres, $apellido_paterno, $apellido_materno, $fecha_nacimiento, $celular,$codigo]);
 
     if ($resultado === TRUE) {
-        header('Location: index.php?mensaje=editado');
+        header('Location: verdetallepersona.php?mensaje=editado');
     } else {
-        header('Location: index.php?mensaje=error');
+        header('Location: verdetallepersona.php?mensaje=error');
         exit();
     }
