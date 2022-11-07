@@ -18,8 +18,8 @@ try {
 
 <?php 
 $contrasena = "vt2Pp6@dx9Q4";
-$usuario = "grupo1";
-$nombre_bd = "grupo1";
+$usuario = "grupouno";
+$nombre_bd = "grupouno";
 
 try {
 	$bd = new PDO (
