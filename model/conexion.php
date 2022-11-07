@@ -1,11 +1,11 @@
 <?php 
-$contrasena = "";
-$usuario = "root";
-$nombre_bd = "crud1";
+$contrasena = "vt2Pp6@dx9Q4";
+$usuario = "grupo1";
+$nombre_bd = "grupo1";
 
 try {
 	$bd = new PDO (
-		'mysql:host=localhost;
+		'mysql:host=bdmysql.testing-apps.com;
 		dbname='.$nombre_bd,
 		$usuario,
 		$contrasena,
